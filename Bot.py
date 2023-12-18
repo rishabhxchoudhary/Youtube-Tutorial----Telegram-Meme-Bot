@@ -106,7 +106,15 @@ def meme(message):
         gif_clip.write_videofile('temp.mp4')
         f = open('temp.mp4', 'rb')
         bot.send_video(message.chat.id, f, caption=out)
-
+    elif 'v.redd.it' in random_sub.url:
+        downloader = redvid.Downloader(max_q=True)
+        downloader.url = random_sub.url
+        downloader.file_name = "temp.mp4"   
+        downloader.filename = "temp.mp4"
+        downloader.download()
+        f = open('temp.mp4', 'rb')
+        bot.send_video(message.chat.id, f, caption=out)
+        os.remove('temp.mp4')
     else:
         bot.send_message(chat_id=message.chat.id, text=out)
 
