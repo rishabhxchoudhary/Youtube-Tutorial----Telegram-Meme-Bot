@@ -1,0 +1,6 @@
+praw
+pyTelegramBotAPI
+requests
+bs4
+moviepy
+redvid
